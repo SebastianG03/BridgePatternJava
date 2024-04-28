@@ -1,12 +1,15 @@
-package Messages;
+package messages.types;
 
-public class Image extends MessageInterface {
+import messages.Preset;
 
-    public Image() {
+public class Text extends Preset {
+
+    public Text() {
     }
+
     @Override
     public String getSender() {
-        return sender;
+        return "Sender";
     }
 
     @Override
@@ -16,22 +19,22 @@ public class Image extends MessageInterface {
 
     @Override
     public String encrypt() {
-        return "Encrypted Message";
+        return "fsdfs";
     }
 
     @Override
     public String decrypt() {
-        return "Decrypted Message";
+        return "fsfs";
     }
 
     @Override
     public String getReceiver() {
-        return receiver;
+        return "fsdfs";
     }
 
     @Override
     public String getMessageDatetime() {
-        return "A date";
+        return "fsdfs";
     }
-
 }
+

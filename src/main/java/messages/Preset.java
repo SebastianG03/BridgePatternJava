@@ -1,6 +1,6 @@
-package Messages;
+package messages;
 
-public abstract class MessageInterface {
+public abstract class Preset {
     String id;
     String sender;
     String receiver;

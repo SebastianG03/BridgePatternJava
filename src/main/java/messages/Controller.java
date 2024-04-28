@@ -1,9 +1,9 @@
-package Messages;
+package messages;
 
-public class MessageController {
-    private MessageInterface messageInterface;
+public class Controller {
+    private Preset messageInterface;
 
-    public MessageController(MessageInterface messageInterface) {
+    public Controller(Preset messageInterface) {
         this.messageInterface = messageInterface;
     }
 
