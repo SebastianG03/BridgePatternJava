@@ -13,6 +13,7 @@ public class Text extends Preset {
 
     @SneakyThrows
     public Text() {
+        super.setContent("This is a non secret message. ;)");
         encryptor = new Encryptor();
         publicKey = encryptor.getPublicKeyString();
         privateKey = encryptor.getPrivateKeyString();
@@ -31,13 +32,12 @@ public class Text extends Preset {
 
     @Override
     public String encrypt() {
-        String message = "This is an example of an encrypt message";
-        return encryptor.encrypt(message, publicKey);
+        return encryptor.encrypt(super.getContent(), publicKey);
     }
 
     @Override
     public String decrypt() {
-        String message = encryptor.encrypt("This is an example of a decrypted message", publicKey);
+        String message = encryptor.encrypt(super.getContent(), publicKey);
         return encryptor.decrypt(message, privateKey);
     }
 }
