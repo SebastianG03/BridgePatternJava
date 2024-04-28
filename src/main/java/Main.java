@@ -1,3 +1,4 @@
+import Config.Encryptor;
 import messages.Preset;
 import messages.types.Image;
 import messages.types.Text;
@@ -5,7 +6,8 @@ import messages.Controller;
 import messages.types.Video;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
+
         Preset[] messages = new Preset[] {
             new Text(), new Image(), new Video()
         };
