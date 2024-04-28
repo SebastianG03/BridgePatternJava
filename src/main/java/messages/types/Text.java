@@ -4,8 +4,6 @@ import Config.Encryptor;
 import lombok.SneakyThrows;
 import messages.Preset;
 
-import java.util.Base64;
-
 public class Text extends Preset {
     final Encryptor encryptor;
     final String publicKey;
@@ -13,7 +11,7 @@ public class Text extends Preset {
 
     @SneakyThrows
     public Text() {
-        super.setContent("This is a non secret message. ;)");
+        super.setContent("This is a non secret message. ;)\n");
         encryptor = new Encryptor();
         publicKey = encryptor.getPublicKeyString();
         privateKey = encryptor.getPrivateKeyString();
