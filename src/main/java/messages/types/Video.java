@@ -9,21 +9,21 @@ public class Video extends Preset {
 
     @Override
     public String encode() {
-        return "encoding video message...";
+        return "encoding video message...\n";
     }
 
     @Override
     public String decode() {
-        return "decoding video message...";
+        return "decoding video message...\n";
     }
 
     @Override
     public String encrypt() {
-        return "encrypting video message...";
+        return "encrypting video message...\n";
     }
 
     @Override
     public String decrypt() {
-        return "decrypting video message...";
+        return "decrypting video message...\n";
     }
 }

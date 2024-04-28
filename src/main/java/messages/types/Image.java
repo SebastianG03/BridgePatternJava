@@ -9,22 +9,22 @@ public class Image extends Preset {
 
     @Override
     public String encode() {
-        return "encoding image message...";
+        return "encoding image message...\n";
     }
 
     @Override
     public String decode() {
-        return "decoding image message...";
+        return "decoding image message...\n";
     }
 
     @Override
     public String encrypt() {
-        return "encrypting image message...";
+        return "encrypting image message...\n";
     }
 
     @Override
     public String decrypt() {
-        return "decrypting image message...";
+        return "decrypting image message...\n";
     }
 
 }
