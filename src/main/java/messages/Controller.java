@@ -13,4 +13,8 @@ public class Controller {
     public String sendMessage() {
         return message.encode() + message.encrypt();
     }
+
+    public String receiveMessage() {
+        return message.decrypt() + message.decode();
+    }
 }
