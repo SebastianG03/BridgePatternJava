@@ -1,40 +1,29 @@
 package messages.types;
 
 import messages.Preset;
-
 public class Text extends Preset {
 
     public Text() {
     }
 
     @Override
-    public String getSender() {
-        return "Sender";
+    public String encode() {
+        return "encoding text message...\n";
     }
 
     @Override
-    public Boolean sendMessage() {
-        return true;
+    public String decode() {
+        return "decoding text message...\n";
     }
 
     @Override
     public String encrypt() {
-        return "fsdfs";
+        return "encrypting text message...\n";
     }
 
     @Override
     public String decrypt() {
-        return "fsfs";
-    }
-
-    @Override
-    public String getReceiver() {
-        return "fsdfs";
-    }
-
-    @Override
-    public String getMessageDatetime() {
-        return "fsdfs";
+        return "decrypting text message...\n";
     }
 }
 

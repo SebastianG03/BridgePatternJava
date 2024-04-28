@@ -8,33 +8,22 @@ public class Video extends Preset {
     }
 
     @Override
-    public String getSender() {
-        return sender;
+    public String encode() {
+        return "encoding video message...";
     }
 
     @Override
-    public Boolean sendMessage() {
-        return true;
+    public String decode() {
+        return "decoding video message...";
     }
 
     @Override
     public String encrypt() {
-        return "Encrypted Message";
+        return "encrypting video message...";
     }
 
     @Override
     public String decrypt() {
-        return "Decrypted Message";
+        return "decrypting video message...";
     }
-
-    @Override
-    public String getReceiver() {
-        return receiver;
-    }
-
-    @Override
-    public String getMessageDatetime() {
-        return "A date";
-    }
-
 }

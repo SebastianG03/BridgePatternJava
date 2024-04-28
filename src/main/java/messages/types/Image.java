@@ -6,34 +6,25 @@ public class Image extends Preset {
 
     public Image() {
     }
+
     @Override
-    public String getSender() {
-        return sender;
+    public String encode() {
+        return "encoding image message...";
     }
 
     @Override
-    public Boolean sendMessage() {
-        return true;
+    public String decode() {
+        return "decoding image message...";
     }
 
     @Override
     public String encrypt() {
-        return "Encrypted Message";
+        return "encrypting image message...";
     }
 
     @Override
     public String decrypt() {
-        return "Decrypted Message";
-    }
-
-    @Override
-    public String getReceiver() {
-        return receiver;
-    }
-
-    @Override
-    public String getMessageDatetime() {
-        return "A date";
+        return "decrypting image message...";
     }
 
 }
