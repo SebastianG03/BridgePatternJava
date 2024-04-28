@@ -1,4 +1,3 @@
-import Config.Encryptor;
 import messages.Preset;
 import messages.types.Image;
 import messages.types.Text;
