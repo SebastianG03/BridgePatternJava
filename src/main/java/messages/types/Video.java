@@ -1,6 +1,8 @@
-package Messages;
+package messages.types;
 
-public class Video extends MessageInterface {
+import messages.Preset;
+
+public class Video extends Preset {
 
     public Video() {
     }

@@ -1,10 +1,10 @@
-import Messages.Message;
-import Messages.MessageController;
+import messages.types.Text;
+import messages.Controller;
 
 public class Main {
     public static void main(String[] args) {
-        Message message = new Message();
-        MessageController controller = new MessageController(message);
+        Text message = new Text();
+        Controller controller = new Controller(message);
 
         System.out.println(message.decrypt());
 
