@@ -1,42 +1,24 @@
 package messages.types;
 
-import Config.Encryptor;
+import encryption.implementation.Encryption;
 import lombok.SneakyThrows;
-import messages.Preset;
+import messages.abstraction.Message;
 
-public class Text extends Preset {
-    final Encryptor encryptor;
-    final String publicKey;
-    final String privateKey;
-
+public class Text extends Message {
     @SneakyThrows
-    public Text() {
-        super.setContent("This is a non secret message. ;)\n");
-        encryptor = new Encryptor();
-        publicKey = encryptor.getPublicKeyString();
-        privateKey = encryptor.getPrivateKeyString();
-
+    public Text(Encryption encryption) {
+        content = "This is a text message";
+        this.encryption = encryption;
     }
 
     @Override
-    public String encode() {
-        return "encoding text message...\n";
+    public void encrypt() {
+        content = encryption.encrypt(content);
     }
 
     @Override
-    public String decode() {
-        return "decoding text message...\n";
-    }
-
-    @Override
-    public String encrypt() {
-        return encryptor.encrypt(super.getContent(), publicKey);
-    }
-
-    @Override
-    public String decrypt() {
-        String message = encryptor.encrypt(super.getContent(), publicKey);
-        return encryptor.decrypt(message, privateKey);
+    public void decrypt() {
+        content = encryption.decrypt(content);
     }
 }
 

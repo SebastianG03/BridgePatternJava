@@ -1,30 +1,22 @@
 package messages.types;
 
-import messages.Preset;
+import encryption.implementation.Encryption;
+import messages.abstraction.Message;
 
-public class Image extends Preset {
+public class Image extends Message {
 
-    public Image() {
+    public Image(Encryption encryption) {
+        content = "This is an image";
+        this.encryption = encryption;
     }
 
     @Override
-    public String encode() {
-        return "encoding image message...\n";
+    public void encrypt() {
+        content = encryption.encrypt(content);
     }
 
     @Override
-    public String decode() {
-        return "decoding image message...\n";
+    public void decrypt() {
+        content = encryption.decrypt(content);
     }
-
-    @Override
-    public String encrypt() {
-        return "encrypting image message...\n";
-    }
-
-    @Override
-    public String decrypt() {
-        return "decrypting image message...\n";
-    }
-
 }
