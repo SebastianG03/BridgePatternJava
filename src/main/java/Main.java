@@ -1,19 +1,20 @@
-import messages.Preset;
+import encryption.types.AES256Encryption;
+import encryption.types.RSAEncryption;
+import messages.abstraction.Message;
 import messages.types.Image;
 import messages.types.Text;
-import messages.Controller;
-import messages.types.Video;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-
-        Preset[] messages = new Preset[] {
-            new Text(), new Image(), new Video()
+        Message[] messages = new Message[] {
+            new Text(new RSAEncryption()), new Image(new AES256Encryption())
         };
-        for (Preset preset : messages) {
-            Controller controller = new Controller(preset);
-            System.out.println(controller.sendMessage());
-            System.out.println(controller.receiveMessage());
+        for (Message message : messages) {
+            System.out.println("Mensaje:\t" + message); // Show the original message
+            message.encrypt(); // Encrypt the message
+            System.out.println("Mensaje encriptado:\t" + message);
+            message.decrypt(); // Decrypt the message
+            System.out.println("Mensaje desencriptado:\t" + message + "\n");
         }
     }
 }

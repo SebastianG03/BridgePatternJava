@@ -1,17 +1,20 @@
-package Config;
+package encryption.types;
 
+import encryption.implementation.Encryption;
 import lombok.Getter;
 import lombok.SneakyThrows;
 
 import javax.crypto.Cipher;
 import java.nio.charset.StandardCharsets;
-import java.security.*;
+import java.security.KeyFactory;
+import java.security.KeyPairGenerator;
+import java.security.PrivateKey;
+import java.security.PublicKey;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 import java.util.Base64;
 
-public class Encryptor {
-
+public class RSAEncryption implements Encryption {
     final java.security.KeyPair keyPair;
     final PublicKey publicKey;
     @Getter
@@ -20,7 +23,7 @@ public class Encryptor {
     @Getter
     final String privateKeyString;
 
-    public Encryptor() throws Exception {
+    public RSAEncryption() throws Exception {
         this.keyPair = generateKeyPair();
         this.publicKey = keyPair.getPublic();
         this.privateKey = keyPair.getPrivate();
@@ -35,7 +38,7 @@ public class Encryptor {
     }
 
     @SneakyThrows
-    public String encrypt(String message, String  publicKeyString) {
+    public String encrypt(String message) {
         byte[] publicKeyBytes = Base64.getDecoder().decode(publicKeyString.getBytes());
         KeyFactory keyFactory = KeyFactory.getInstance("RSA");
         X509EncodedKeySpec publicKeySpec = new X509EncodedKeySpec(publicKeyBytes);
@@ -48,11 +51,11 @@ public class Encryptor {
     }
 
     @SneakyThrows
-    public String decrypt(String encryptedMessage, String privateKeyString) {
+    public String decrypt(String encryptedMessage) {
         byte[] privateKeyBytes = Base64.getDecoder().decode(privateKeyString.getBytes());
         PKCS8EncodedKeySpec privateKeySpec = new PKCS8EncodedKeySpec(privateKeyBytes);
         KeyFactory keyFactory = null;
-            keyFactory = KeyFactory.getInstance ("RSA");
+        keyFactory = KeyFactory.getInstance ("RSA");
 
         PrivateKey privateKey= keyFactory.generatePrivate(privateKeySpec);
 
